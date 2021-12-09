@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 08:36:28 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 17:28:03 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/09 19:26:42 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	*ft_memmove(void *destination, const void *source, size_t num);
 void	*ft_memchr(void *ptr, int value, size_t num);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 #endif
