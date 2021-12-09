@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 12:53:05 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 13:20:35 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/09 14:26:48 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*pt;
+	size_t	i;
 
-	pt = NULL;
-	while (*str)
+	i = ft_strlen(str);
+	while (i > 0)
 	{
-		if (*str == (char)c)
-		{
-			pt = (char *)str;
-		}
-		str++;
+		if (str[i] == (char)c)
+			return ((char *)str + i);
+		i--;
 	}
-	return (pt);
+	if (str[i] == (char)c)
+		return ((char *)str);
+	return (0);
 }

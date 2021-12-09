@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 08:36:28 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 13:20:03 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/09 14:36:47 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_strncmp(const char *str1, const char *str2, size_t num);
 size_t	ft_strlen(const char *str);
 
 void	ft_bzero(void *to, size_t count);

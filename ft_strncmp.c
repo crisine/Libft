@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 04:52:15 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 14:04:18 by misung           ###   ########.fr       */
+/*   Created: 2021/12/09 14:29:53 by misung            #+#    #+#             */
+/*   Updated: 2021/12/09 14:40:05 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *destination, const void *source, size_t num)
+int	ft_strncmp(const char *str1, const char *str2, size_t num)
 {
-	unsigned char		*dp;
-	unsigned const char	*sp;
+	size_t	i;
 
-	dp = destination;
-	sp = source;
-	if (source > destination)
+	i = 0;
+	while (i < num)
 	{
-		while (num--)
+		if ((*str1 != *str2)
+			|| (str1 == NULL || str2 == NULL))
 		{
-			*dp++ = *sp++;
+			return ((int)*str1 - *str2);
 		}
+		i++;
+		str1++;
+		str2++;
 	}
-	else
-	{
-		dp = destination + (num - 1);
-		sp = source + (num - 1);
-		while (num--)
-		{
-			*dp-- = *sp--;
-		}	
-	}
-	return (destination);
+	return (0);
 }
