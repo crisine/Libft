@@ -6,7 +6,7 @@
 #    By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 09:02:02 by misung            #+#    #+#              #
-#    Updated: 2021/12/09 14:36:54 by misung           ###   ########.fr        #
+#    Updated: 2021/12/09 16:14:09 by misung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ FILES = ft_isalpha \
 	ft_strchr \
 	ft_strrchr \
 	ft_strncmp \
-	
-	
+	ft_memchr \
+	ft_memcmp \
+	ft_strlcpy \
 	
 
 SRCS_DIR = ./

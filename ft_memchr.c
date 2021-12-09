@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 14:29:53 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 14:49:10 by misung           ###   ########.fr       */
+/*   Created: 2021/12/09 15:39:41 by misung            #+#    #+#             */
+/*   Updated: 2021/12/09 15:45:03 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *str1, const char *str2, size_t num)
+void	*ft_memchr(void *ptr, int value, size_t num)
 {
-	size_t	i;
+	unsigned char	*pt;
+	size_t			i;
 
+	pt = ptr;
 	i = 0;
 	while (i < num)
 	{
-		if ((*str1 != *str2)
-			|| (str1 == NULL || str2 == NULL))
+		if (pt[i] == (unsigned char)value)
 		{
-			return ((unsigned char)*str1 - (unsigned char)*str2);
+			return (pt + i);
 		}
 		i++;
-		str1++;
-		str2++;
 	}
-	return (0);
+	return (NULL);
 }
