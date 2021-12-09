@@ -6,7 +6,7 @@
 #    By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 09:02:02 by misung            #+#    #+#              #
-#    Updated: 2021/12/09 16:14:09 by misung           ###   ########.fr        #
+#    Updated: 2021/12/09 17:28:11 by misung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ FILES = ft_isalpha \
 	ft_memchr \
 	ft_memcmp \
 	ft_strlcpy \
-	
+	ft_strlcat
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

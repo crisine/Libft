@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 08:36:28 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 16:14:40 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/09 17:28:03 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		ft_strncmp(const char *str1, const char *str2, size_t num);
 int		ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *destination, const char *source, size_t size);
+size_t	ft_strlcat(char *destination, const char *source, size_t maxlen);
 
 void	ft_bzero(void *to, size_t count);
 
