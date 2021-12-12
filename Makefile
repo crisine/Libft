@@ -6,7 +6,7 @@
 #    By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 09:02:02 by misung            #+#    #+#              #
-#    Updated: 2021/12/10 16:37:51 by misung           ###   ########.fr        #
+#    Updated: 2021/12/12 18:04:13 by misung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,18 @@ FILES = ft_isalpha \
 	ft_strnstr \
 	ft_calloc \
 	ft_strdup \
-	ft_atoi
-	
+	ft_atoi \
+	ft_substr \
+	ft_strjoin \
+	ft_strtrim \
+	ft_split \
+	ft_itoa \
+	ft_strmapi \
+	ft_striteri \
+	ft_putchar_fd \
+	ft_putstr_fd \
+	ft_putendl_fd \
+	ft_putnbr_fd \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

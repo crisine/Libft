@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 16:01:39 by misung            #+#    #+#             */
-/*   Updated: 2021/12/12 15:50:27 by misung           ###   ########.fr       */
+/*   Created: 2021/12/10 18:58:08 by misung            #+#    #+#             */
+/*   Updated: 2021/12/10 20:22:22 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *destination, const char *source, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*sub;
 	size_t	i;
-	size_t	len;
+	size_t	j;
 
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (sub == NULL || s == NULL)
+		return (NULL);
 	i = 0;
-	len = (size_t)ft_strlen(source);
-	if (!destination || !source)
-		return (0);
-	while (i < len && i + 1 < size)
+	j = 0;
+	while (s[i])
 	{
-		destination[i] = source[i];
+		if (i >= start && j < len)
+		{
+			sub[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	if (size > 0)
-		destination[i] = '\0';
-	return (len);
+	sub[j] = '\0';
+	return (sub);
 }

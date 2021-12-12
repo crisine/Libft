@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 16:20:22 by misung            #+#    #+#             */
-/*   Updated: 2021/12/10 16:37:25 by misung           ###   ########.fr       */
+/*   Created: 2021/12/10 17:23:40 by misung            #+#    #+#             */
+/*   Updated: 2021/12/10 17:34:00 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static const char	*ft_isspace(const char *str)
+static char	*ft_isspace(char *str)
 {
 	while (*str == ' '
 		|| *str == '\n'
@@ -26,42 +26,29 @@ static const char	*ft_isspace(const char *str)
 	return (str);
 }
 
-static int	ft_sign_judge(const char *str)
-{
-	int	neg_cnt;
-
-	neg_cnt = 0;
-	while ((*str == '-') || (*str == '+'))
-	{
-		if (*str == '-')
-			neg_cnt++;
-		str++;
-	}
-	if (neg_cnt % 2 == 0)
-	{
-		return (1);
-	}
-	else
-	{
-		return (-1);
-	}
-}
-
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	result;
+	int		result;
+	int		sign;
+	char	*p;
 
 	if (str == NULL)
 		return (0);
-	str = ft_isspace(str);
-	sign = ft_sign_judge(str);
 	result = 0;
-	while (*str >= '0' && *str <= '9')
+	p = (char *)str;
+	p = ft_isspace(p);
+	sign = 1;
+	if (*p == '-' || *p == '+')
+	{
+		if (*p == '-')
+			sign = -1;
+		p++;
+	}	
+	while (*p >= '0' && *p <= '9')
 	{
 		result *= 10;
-		result += (*str - '0');
-		str++;
+		result += ((*p) - '0');
+		p++;
 	}
-	return (sign * result);
+	return (result * sign);
 }
