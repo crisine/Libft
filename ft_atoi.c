@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:23:40 by misung            #+#    #+#             */
-/*   Updated: 2021/12/14 12:04:10 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:12:34 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*ft_isspace(char *str)
 		|| *str == '\f'
 		|| *str == '\r')
 	{
-			str++;
+		str++;
 	}
 	return (str);
 }
