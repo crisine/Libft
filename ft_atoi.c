@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:23:40 by misung            #+#    #+#             */
-/*   Updated: 2021/12/14 12:12:34 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:48:55 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	ft_atoi(const char *str)
 	int			sign;
 	char		*p;
 
-	if (str == NULL)
-		return (0);
 	result = 0;
 	p = (char *)str;
 	p = ft_isspace(p);
