@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 04:07:38 by misung            #+#    #+#             */
-/*   Updated: 2021/12/08 04:29:17 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/13 19:19:25 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *destination, const void *source, size_t num)
 	unsigned const char	*sp;
 	size_t				i;
 
+	if (destination == NULL && source == NULL)
+		return (NULL);
 	dp = destination;
 	sp = source;
 	i = 0;

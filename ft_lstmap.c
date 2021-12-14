@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 19:19:37 by misung            #+#    #+#             */
-/*   Updated: 2021/12/13 19:28:45 by misung           ###   ########.fr       */
+/*   Created: 2021/12/13 18:45:19 by misung            #+#    #+#             */
+/*   Updated: 2021/12/13 19:04:07 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*lst_new_pt;
+	t_list	*lst_new;
+	t_list	*lst_old;
 
-	if (*str == '\0')
-		return ((char *)str);
-	if (len == 0)
-		return (NULL);
-	i = 0;
-	j = 0;
+	lst_new_pt = ft_lstnew((*f)(lst->content));
+	lst_new = lst_new_pt;
+	lst_old = lst->next;
 	while (1)
 	{
-		if (find[j] == '\0')
-			return ((char *)(str + (i - j)));
-		if (str[i] == find[j])
-			j++;
-		else
+		if (lst_old == NULL)
+			break ;
+		lst_new->next = ft_lstnew((*f)(lst_old->content));
+		if (lst_new->next == NULL)
 		{
-			i -= j;
-			j = 0;
-		}
-		if (str[i] == '\0' || i >= len)
+			ft_lstclear(&lst_new, del);
 			return (NULL);
-		i++;
+		}
+		lst_new = lst_new->next;
+		lst_old = lst_old->next;
 	}
+	return (lst_new_pt);
 }

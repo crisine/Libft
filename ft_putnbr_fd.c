@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:01:00 by misung            #+#    #+#             */
-/*   Updated: 2021/12/12 18:10:16 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/13 19:38:24 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	len;
+	long	num;
 
-	len = ft_strlen(ft_itoa(n));
-	if (fd < 0)
-		return ;
-	write(fd, ft_itoa(n), len);
+	num = n;
+	if (num < 0)
+	{
+		ft_putchar_fd('-', fd);
+		num *= -1;
+	}
+	if (num > 10)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd('0' + (num % 10), fd);
 }

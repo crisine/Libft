@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 04:52:15 by misung            #+#    #+#             */
-/*   Updated: 2021/12/09 14:04:18 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/13 19:25:49 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 void	*ft_memmove(void *destination, const void *source, size_t num)
 {
 	unsigned char		*dp;
-	unsigned const char	*sp;
+	unsigned char		*sp;
+	char				step;
+	size_t				i;
 
-	dp = destination;
-	sp = source;
-	if (source > destination)
+	if (destination == NULL && source == NULL)
+		return (NULL);
+	dp = (unsigned char *)destination;
+	sp = (unsigned char *)source;
+	step = 1;
+	i = 0;
+	if (destination > source)
 	{
-		while (num--)
-		{
-			*dp++ = *sp++;
-		}
+		step = -1;
+		dp = (unsigned char *)(destination + num - 1);
+		sp = (unsigned char *)(source + num - 1);
 	}
-	else
+	while (i < num)
 	{
-		dp = destination + (num - 1);
-		sp = source + (num - 1);
-		while (num--)
-		{
-			*dp-- = *sp--;
-		}	
+		*dp = *sp;
+		dp += step;
+		sp += step;
+		i++;
 	}
 	return (destination);
 }
