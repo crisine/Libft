@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 13:04:06 by misung            #+#    #+#             */
-/*   Updated: 2021/12/12 16:40:52 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/16 12:37:43 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,11 @@ char	**ft_split(const char *s, char c)
 	char			**split;
 	unsigned int	word_cnt;
 
+	if (s == NULL)
+		return (NULL);
 	word_cnt = ft_word_cnt(s, c);
 	split = (char **)malloc(sizeof(char *) * (word_cnt + 1));
-	if (split == NULL || s == 0)
+	if (split == NULL)
 		return (NULL);
 	ft_fill_split(split, s, c);
 	return (split);

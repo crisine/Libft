@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:45:19 by misung            #+#    #+#             */
-/*   Updated: 2021/12/13 19:04:07 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/16 12:35:20 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*lst_new;
 	t_list	*lst_old;
 
+	if (lst == NULL)
+		return (NULL);
 	lst_new_pt = ft_lstnew((*f)(lst->content));
 	lst_new = lst_new_pt;
 	lst_old = lst->next;
