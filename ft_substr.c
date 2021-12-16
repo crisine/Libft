@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:58:08 by misung            #+#    #+#             */
-/*   Updated: 2021/12/10 20:22:22 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/16 17:07:19 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (s == NULL)
+		return (NULL);
 	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if (sub == NULL || s == NULL)
+	if (sub == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;

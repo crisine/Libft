@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:01:00 by misung            #+#    #+#             */
-/*   Updated: 2021/12/13 19:38:24 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/16 18:15:34 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	num;
+	long long	num;
 
 	num = n;
 	if (num < 0)
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		num *= -1;
 	}
-	if (num > 10)
+	if (num >= 10)
 		ft_putnbr_fd(num / 10, fd);
 	ft_putchar_fd('0' + (num % 10), fd);
 }
