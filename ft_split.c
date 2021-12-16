@@ -6,7 +6,7 @@
 /*   By: misung <misung@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 13:04:06 by misung            #+#    #+#             */
-/*   Updated: 2021/12/16 12:37:43 by misung           ###   ########.fr       */
+/*   Updated: 2021/12/16 16:51:23 by misung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*ft_fill_word(const char *word, unsigned int word_len)
 	return (split_word);
 }
 
-static void	ft_fill_split(char **split, const char *s, char c)
+static bool	ft_fill_split(char **split, const char *s, char c)
 {
 	size_t			i;
 	size_t			len;
@@ -52,27 +52,41 @@ static void	ft_fill_split(char **split, const char *s, char c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-		{
 			i++;
-		}
 		else
 		{
 			len = 0;
 			while (s[i + len] != c && s[i + len] != '\0')
 				len++;
-			split[word_cnt] = (char *)malloc(sizeof(char) * (len + 1));
 			split[word_cnt] = ft_fill_word(&s[i], len);
+			if (split[word_cnt] == NULL)
+				return (false);
 			i += len;
 			word_cnt++;
 		}
 	}
 	split[word_cnt] = NULL;
+	return (true);
+}
+
+static void	ft_free_all(char **split)
+{
+	size_t	i;
+
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split);
+		i++;
+	}
+	free(split);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char			**split;
 	unsigned int	word_cnt;
+	bool			chk_memory;
 
 	if (s == NULL)
 		return (NULL);
@@ -80,6 +94,11 @@ char	**ft_split(const char *s, char c)
 	split = (char **)malloc(sizeof(char *) * (word_cnt + 1));
 	if (split == NULL)
 		return (NULL);
-	ft_fill_split(split, s, c);
+	chk_memory = ft_fill_split(split, s, c);
+	if (chk_memory == false)
+	{
+		ft_free_all(split);
+		split = NULL;
+	}
 	return (split);
 }
